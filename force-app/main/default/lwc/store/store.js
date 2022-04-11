@@ -10,7 +10,6 @@ const { compose, createStore, applyMiddleware, combineReducers } = Redux;
 const middleware = [thunk];
 
 const reduxDevToolProp = '__REDUX_DEVTOOLS_EXTENSION_COMPOSE__';
-
 const composeEnhancers = window[reduxDevToolProp] || compose;
 
 /**
