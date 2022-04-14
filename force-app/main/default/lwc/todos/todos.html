@@ -1,0 +1,25 @@
+<template>
+    <div class="todos slds-theme_default slds-border">
+        <div class="slds-grid slds-wrap slds-p-around_large">
+            <div class="slds-size_1-of-3">
+                <span onkeydown={handleKeydown}>
+                    <lightning-input variant="label-hidden" label="New Todo" placeholder="new todo" value={newTodo} onchange={changeHandler}>
+                    </lightning-input>
+                </span>
+            </div>
+            <div class="slds-size_1-of-3">
+                <lightning-button variant="brand" label="Add Todo" title="action" onclick={addTodoHandler} class="slds-m-top_small slds-m-left_x-small">
+                </lightning-button>
+            </div>
+        </div>
+        <div class="slds-text-heading_medium slds-p-around_small">Todo List: </div>
+        <div>
+            <ul class="slds-list_dotted slds-p-around_small">
+                <template for:each={todoState} for:item="todo">
+                    <c-todo-item key={todo.id} item={todo}>
+                    </c-todo-item>
+                </template>
+            </ul>
+        </div>
+    </div>
+</template>
