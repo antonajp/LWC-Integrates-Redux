@@ -29,8 +29,6 @@ export function boundLightningElement(
             const state = store.getState();
             const nextState = mapStateToProps(state);
 
-            // TODO: memoize this update
-
             if (propName && nextState !== this[propName]) {
                 this[propName] = nextState;
             } else {

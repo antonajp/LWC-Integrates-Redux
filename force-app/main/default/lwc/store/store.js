@@ -8,6 +8,19 @@ import * as selectors from "./selectors";
 const { compose, createStore, applyMiddleware, combineReducers } = Redux;
 
 const middleware = [thunk];
+const ENABLE_LOGGER_MIDDLEWARE = true;
+const loggerMiddleware = store => next => action => {
+    const { console } = window;
+    console.group(action.type);
+    console.info("dispatching", action);
+    const result = next(action);
+    console.log("next state", store.getState());
+    console.groupEnd();
+    return result;
+};
+if (ENABLE_LOGGER_MIDDLEWARE) {
+    middleware.push(loggerMiddleware);
+}
 
 const reduxDevToolProp = '__REDUX_DEVTOOLS_EXTENSION_COMPOSE__';
 const composeEnhancers = window[reduxDevToolProp] || compose;
@@ -17,7 +30,9 @@ const composeEnhancers = window[reduxDevToolProp] || compose;
  */
 export const store = createStore(
     combineReducers(reducers),
-    composeEnhancers(applyMiddleware(...middleware))
+    composeEnhancers(
+        applyMiddleware(...middleware)
+    )
 );
 
 export const { dispatch, subscribe, unsubscribe } = store;
