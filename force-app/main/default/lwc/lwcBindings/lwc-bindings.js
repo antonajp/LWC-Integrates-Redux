@@ -1,6 +1,6 @@
 import { store } from 'c/store';
 
-export function boundLightningElement(
+export function lwcReduxMixin(
     { mapStateToProps = null, propName = null } = {},
     lightningElementCls
 ) {

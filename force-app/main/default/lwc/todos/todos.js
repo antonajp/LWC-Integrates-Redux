@@ -1,9 +1,9 @@
 import { LightningElement, track } from 'lwc';
-import { selectors, actions } from 'c/store';
-import { boundLightningElement } from 'c/lwcBindings';
+import { selectors, actionCreators } from 'c/store';
+import { lwcReduxMixin } from 'c/lwcBindings';
 const { todoSelector } = selectors;
-const { addTodo } = actions;
-export default class Todos extends boundLightningElement({ mapStateToProps: todoSelector, propName: 'todoState' }, LightningElement) {
+const { addTodo } = actionCreators;
+export default class Todos extends lwcReduxMixin({ mapStateToProps: todoSelector, propName: 'todoState' }, LightningElement) {
     @track newTodo;
     todoState = null;
     addTodoHandler = () => {

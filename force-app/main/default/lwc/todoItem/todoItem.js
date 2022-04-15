@@ -1,6 +1,6 @@
 import { LightningElement, api } from 'lwc';
-import { actions } from "c/store";
-const { toggleTodo } = actions;
+import { actionCreators } from "c/store";
+const { toggleTodo } = actionCreators;
 export default class TodoItem extends LightningElement {
     @api item
     get styleClass() {

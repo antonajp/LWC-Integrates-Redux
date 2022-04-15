@@ -1,7 +1,7 @@
 import { Redux, thunk } from "c/reduxLibs";
 
 import * as reducers from "./reducers";
-import * as actions from "./actions";
+import * as actionCreators from "./actionCreators";
 import * as actionTypes from "./actionTypes";
 import * as selectors from "./selectors";
 
@@ -37,4 +37,4 @@ export const store = createStore(
 
 export const { dispatch, subscribe, unsubscribe } = store;
 
-export { actions, actionTypes, reducers, selectors };
+export { actionCreators, actionTypes, reducers, selectors };
