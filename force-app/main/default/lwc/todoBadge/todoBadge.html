@@ -1,13 +1,18 @@
 <template>
     <div class="todos slds-theme_default slds-border">
-        <div class="slds-text-heading_medium slds-p-around_small">Outstanding Todos: </div>
-        <div>
-            <ul class="slds-list_dotted slds-p-around_small">
-                <template for:each={outstandingTodos} for:item="todo">
-                    <lightning-badge key={todo.id} label={todo.text}>
-                    </lightning-badge>
-                </template>
-            </ul>
-        </div>
+        <template if:true={hasTodos}>
+            <div class="slds-text-heading_medium slds-p-around_small">Outstanding Todos: </div>
+            <div>
+                <ul class="slds-list_dotted slds-p-around_small">
+                    <template for:each={outstandingTodos} for:item="todo">
+                        <lightning-badge key={todo.id} label={todo.text}>
+                        </lightning-badge>
+                    </template>
+                </ul>
+            </div>
+        </template>
+        <template if:false={hasTodos}>
+            <div class="slds-text-heading_medium slds-p-around_small">No more todo!  You are all Good!</div>
+        </template>
     </div>
 </template>
