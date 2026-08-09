@@ -1,3 +1,5 @@
+
+
 # LWC-Integrates-Redux
 Integrate Lightning Web Components with Redux for predictable, centralized, and flexible application state
 
@@ -23,6 +25,7 @@ Checkout the source code.
 ```
 git clone git@github.com:antonajp/LWC-Integrates-Redux.git
 cd LWC-Integrates-Redux
+npm install
 ```
 
 If you are new to Salesforce DX, please follow the [App Development with Salesforce DX](https://trailhead.salesforce.com/content/learn/modules/sfdx_app_dev) Trailhead module.
